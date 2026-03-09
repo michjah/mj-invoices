@@ -7,6 +7,7 @@ import NotFound from "../components/NotFound/NotFound.vue";
 import NewContact from "../components/Contacts/NewContact.vue";
 import NewInvoice from "../components/Invoices/NewInvoice.vue";
 import Invoice from "../components/Invoices/Invoice.vue";
+import InvoiceUpdate from "../components/Invoices/InvoiceUpdate.vue";
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
@@ -16,6 +17,8 @@ const routes = [
     { path: '/invoices', name: 'Invoices', component: Ix },
     { path: '/invoices/new', name: 'NewInvoice', component: NewInvoice },
     { path: '/invoices/:id', name: 'Invoice', component: Invoice },
+    { path: '/invoices/:id/update', name: 'InvoiceUpdate', component: InvoiceUpdate},
+
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
 

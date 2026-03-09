@@ -30,20 +30,20 @@ class InvoiceController extends Controller
         );
     }
 
-    public function pdfPreview(InvoiceModel $invoice)
+    public function pdfPreview(int $invoiceId)
     {
-        $invoiceData = $invoice
+        $invoiceData = $this->invoices
             ->with('supplier')
             ->with('customer')
             ->with('items')
-            ->where('invoice_id', $invoice->invoice_id)
+            ->where('invoice_id', $invoiceId)
             ->first()
             ->toArray();
 
         $pdfGenerator = new PdfGenerateService($invoiceData);
         $pdf = $pdfGenerator->generate($invoiceData);
 
-        $filename = 'Invoice_' . $invoice['invoice_id'] . '_' . $invoice['status'] . '.pdf';
+        $filename = 'Invoice_' . $invoiceData['invoice_id'] . '_' . $invoiceData['status'] . '.pdf';
         return response()->streamDownload(fn() => $pdf->Output($filename, 'I'));
     }
 

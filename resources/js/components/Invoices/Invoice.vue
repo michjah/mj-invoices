@@ -36,7 +36,7 @@
                                     <v-btn
                                         v-bind="props"
                                         icon="mdi-pencil"
-                                        :href="`/invoices/${invoice.invoice_id}/edit`"
+                                        :href="`/invoices/${invoice.invoice_id}/update`"
                                         :disabled="invoice.status !== 'DRAFT'"
                                     />
                                 </template>

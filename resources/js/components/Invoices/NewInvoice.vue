@@ -120,6 +120,7 @@
                             :currencies="currencies"
                             :taxes="taxes"
                             :compute-totals="computeTotals"
+                            :update="false"
                         />
                     </v-col>
                 </v-row>
